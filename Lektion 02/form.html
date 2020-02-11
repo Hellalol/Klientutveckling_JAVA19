@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Formulär</title>
+  </head>
+
+  <body>
+    <h1>HTML Formulär</h1>
+
+    <form>
+      <div>
+        <h3>Namn</h3>
+        <input
+          type="text"
+          minlength="5"
+          maxlength="20"
+          placeholder="Ange ditt för- och efternamn"
+          required
+        />
+      </div>
+      <div>
+        <h3>Lösenord</h3>
+        <input type="password" required placeholder="Ange ditt lösenord" />
+      </div>
+      <div>
+        <h3>E-post</h3>
+        <input type="email" required />
+      </div>
+      <div>
+        <h3>Välj antal</h3>
+        <input type="number" min="0" max="10" />
+      </div>
+      <div>
+        <h3>Vad tycker du om HTML?</h3>
+        <textarea
+          placeholder="Skriv vad du tycker..."
+          cols="20"
+          rows="5"
+        ></textarea>
+      </div>
+      <div>
+        <h3>Ange din ålder</h3>
+        <input type="date" />
+      </div>
+      <br />
+      <div>
+        Välj kön:
+        <input id="female" type="radio" name="gender" value="f" />
+        <label for="female">Kvinna</label>
+
+        <input id="male" type="radio" name="gender" value="m" />
+        <label for="male">Man</label>
+      </div>
+      <br /><br />
+      <div>
+        Vilka är dina favorit pod-tjänster <br />
+        <input type="checkbox" name="service" value="itunes" />iTunes
+        <input type="checkbox" name="service" value="syntaxfm" />Syntax.fm
+      </div>
+      <br />
+
+      <div>
+        What device do you listen to music on? <br>
+        <select name="devices">
+          <option value="ipod">iPod</option>
+          <option value="radio" selected>Radio</option>
+          <option value="computer">Computer</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        Select your favorite color:
+        <input type="color" name="favcolor" value="#ff0000" />
+      </div>
+      <br>
+      <input type="submit" value="Send" />
+    </form>
+  </body>
+</html>
