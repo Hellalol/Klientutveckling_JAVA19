@@ -1,0 +1,19 @@
+h1,h2{
+  font-family: 'Gill Sans', Calibri, sans-serif;
+}
+h1{
+  color:#d86f23;
+  font-size: 3em;
+  font-weight: normal;
+  text-align: center;
+}
+h2{
+  color:#e9224a;
+  font-size: 2em;
+  font-style: italic;
+}
+.postit{
+  background-color: #fafa20;
+  border: 1px solid #000;
+  width: 200px;
+}
