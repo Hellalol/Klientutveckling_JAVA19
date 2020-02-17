@@ -1,0 +1,51 @@
+
+      ul.lower-roman{
+        list-style-type:lower-roman;
+      }
+      ul.upper-roman{
+        list-style-type:upper-roman;
+      }
+      ul.my-list{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      /******************************************
+        Navigation
+      ******************************************/
+      ul#navigation{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      /* Arv-selektor */
+      ul#navigation a{
+        background-color: #036;
+        color:#fff;
+        text-decoration: none;
+        width: 100px;
+        padding: 10px;
+        display:block;
+        border-bottom: 1px solid #fff;
+      }
+
+      
+      ul#navigation a:hover{
+        color:#000;
+        background-color:#69c;
+      }
+      
+      /* 
+        För att skapa en horisontell navigering,
+        välj li och ändra display till inline-block
+        T.ex.
+
+      ul#navigation li{
+        display: inline-block;
+      }
+
+      */
+
+      
