@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Övning 4</title>
+</head>
+<body>
+  <h1>Övning 4</h1>
+  <p>Skriv ett program som läser in en varas pris, inkl. moms.</p>
+  <p>Programmet skall också läsa in momssatsen 
+    som skall vara ett helt antal procent.</p>
+  <p>Programmet skall beräkna dels varans pris exkl. moms och dels momsen.
+  <p>De två resultaten skall visas i en dialogruta (alert).</p>
+  <hr>
+  
+  <h2>Pris exkl. moms <span id="pris"></span> kr</h2>
+  <h2>Moms:  <span id="moms"></span> kr</h2>
+  
+  <script>
+
+  let prisInklMoms = prompt("Ange varans pris, inkl. moms"); 
+  let momssatsen   = prompt("Ange momssatsen t.ex. 25");
+
+  // Tips
+  // https://www.momsens.se/rakna-moms-baklanges
+  let prisExklMoms = prisInklMoms / ( 1 + momssatsen/100);
+  let moms = prisInklMoms - prisExklMoms;
+
+  alert("Pris exkl. moms " + 
+        prisExklMoms.toFixed() + " kr \n" +
+        "Moms: " +  moms.toFixed() + " kr"
+  );
+
+  document.getElementById('pris').innerHTML = prisExklMoms.toFixed();
+  document.getElementById('moms').innerHTML = moms.toFixed();
+
+  </script>
+</body>
+</html>

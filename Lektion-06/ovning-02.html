@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Övning 2</title>
+</head>
+<body>
+  <h1>Övning 2</h1>
+  <p>Skapa ett program i JavaScript 
+    som läser in ett namn via en prompt.</p>
+  <p>Skicka namnet till en funktion 
+    som returnerar en hälsningsfras, t.ex. <br>
+    ”Hej namn. Varmt välkommen!”.
+  </p>
+  <p>Visa meddelandet på webbsidan. <br>
+    (Alltså i body, ej alert eller console).
+  </p>
+  <hr>
+
+  <h2 id="demo"></h2>
+
+  <script>
+
+    let name = prompt("Ange ditt namn");
+
+    function hello(name){
+      return "Hej " + name + ". Varmt välkommen";
+    }
+
+    document.getElementById('demo').innerHTML = hello(name);
+
+
+  </script>
+</body>
+</html>

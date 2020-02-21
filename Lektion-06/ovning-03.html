@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Övning 3</title>
+</head>
+<body>
+  <h1>Övning 3</h1>
+  <p>Skapa ett program som läser in antalet minuter man
+    i genomsnitt ringer per månad samt kostnaden per minut.</p>
+  <p>Som resultat skall programmet visa kostnaden per månad.</p>
+  <hr>
+  
+  <h2>Du måste betala <span id="pris"></span>kr</h2>
+  
+  <script>
+
+  let antal = prompt("Ange antal minuter per månad"); 
+  let pris  = prompt("Ange kostnaden per minut");
+
+  document.getElementById('pris').innerHTML = antal * pris;;
+
+  </script>
+</body>
+</html>
