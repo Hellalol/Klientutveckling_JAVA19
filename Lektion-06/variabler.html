@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS - Variabler</title>
+</head>
+<body>
+  <h1>JS Variabler</h1>
+
+  <div id="demo"></div>
+
+  <script>
+
+    // Skapa variabler med nyckelordet let
+    let text1 = "Text 1"; 
+    let text2 = 'Text 2'; 
+    let text3 = `
+      "Text 1"
+      'Text 2'
+    `;  
+
+
+    let test;
+    console.log(test);  // undefiend
+
+    document.write("Test från metoden write");
+
+    let div = document.getElementById('demo');
+    console.log(div);
+
+    div.innerHTML = "Hej från JavaScript";
+
+    document.getElementById('demo').innerHTML = "<h2>Hello from JavaScript</h2>";
+
+    let text = document.getElementById('demo').innerHTML;
+    console.log(text);
+
+    console.log(div.textContent);
+
+    let name = prompt("Vad heter du?");
+    console.log("Hello " + name);
+
+    let age = prompt("Ange din ålder");
+    console.log("Du är " + age + " idag");
+    console.log("Nästa år blir du " + (Number(age) + 1) + " år");
+    console.log("Nästa år blir du " + (+age + 1) + " år");
+
+  </script>
+
+</body>
+</html>
