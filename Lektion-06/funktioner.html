@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Funktioner</title>
+</head>
+<body>
+  <h1>JS Funktioner</h1>
+
+  <div id="demo"></div>
+  
+  <script>
+
+    // Skapa en funktion
+    function hej1(msg = "Welcome"){
+
+      alert("Hej från en funktion.");
+      
+      console.log(msg);
+
+      document.getElementById('demo').innerHTML = msg;
+      
+    }
+
+    function hej2(firstName = "", lastName = ""){
+
+      console.log("Hej " + firstName + " " + lastName);
+      
+    }
+
+    function manyThings(...things){
+      // things blir en array 
+      console.log(things);
+      
+    }
+
+    function hej3(firstName, lastName){
+      return "Hello " + firstName + " " + lastName;
+    }
+
+
+    // Anropa en funktion (call / invoke)
+    hej1("Test från en funktion.");
+
+  
+    hej1();  // Default parameter används här!
+
+    hej2();
+
+    let hello = hej3("Kalle", "Anka");
+    console.log(hello);
+    
+    console.log(hej3("Kalle", "Anka"));
+
+    manyThings(1);
+    manyThings(1 , 2);
+    manyThings(1 , 2 , 3);
+    manyThings("Ett");
+    manyThings("Ett" , "Två");
+    manyThings("Ett" , "Två" , "Tre");
+
+  </script>
+
+</body>
+</html>
