@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>Point</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+      #result {
+        font: 2em sans-serif;
+        color: brown;
+      }
+    </style>
+
+  </head>
+  <body class="container">
+    <h2>Övning</h2>
+    <ol>
+      <li>
+        Skapa en konstruktor som beskriver en punkt i en tvådimensionell värld.
+      </li>
+      <li>
+        Skapa en metod som beräknar avståndet mellan två punkter.
+      </li>
+      <li>Skapa två punkter(två objekt).</li>
+      <li>Beräkna avståndet mellan punkterna.</li>
+    </ol>
+
+    <hr />
+
+    <div class="row">
+
+      <div class="col">
+        <h2>Punkt A</h2>
+        <h3>x:</h3>
+        <input type="number" id="x1" value="0" class="form-control" />
+        <h3>y:</h3>
+        <input type="number" id="y1" value="0" class="form-control" />
+      </div>
+
+      <div class="col">
+        <h2>Punkt B</h2>
+        <h3>x:</h3>
+        <input type="number" id="x2" value="0" class="form-control" />
+        <h3>y:</h3>
+        <input type="number" id="y2" value="0" class="form-control" />
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col">
+        <button id="button" class="btn btn-outline-success w-100">
+          Beräkna avståndet
+        </button>
+      </div>
+      <div class="col">
+        <span id="result">Avståndet: 0.00</span>
+      </div>
+    </div>
+  
+    <script src="ovning-2.js"></script>
+</body>
+</html>
