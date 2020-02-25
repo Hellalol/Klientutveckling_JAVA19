@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Övning</title>
+  <style>
+
+    table,td{
+      border:1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Multiplikationstabellen</h1>
+  
+  <div id="table"></div>
+
+  <script>
+
+    let table = '<table>';
+    for (let row = 1; row <= 10; row++) {
+      table += '<tr>';
+      for (let col = 1; col <= 10; col++) {
+        table += '<td>' + row*col + '</td>';
+      }
+      table += '</tr>';
+      
+    }
+    table += '<table>';
+
+    document.getElementById('table').innerHTML = table;
+
+  </script>
+</body>
+</html>
