@@ -31,6 +31,3 @@ function calcuate() {
 // Koppla händelselyssnare (Event Listeners)
 const button = document.querySelector("#button");
 button.addEventListener("click", calcuate);
-
-// Extra: Kör calcuate när sidan laddas!
-window.addEventListener("load", calcuate);
