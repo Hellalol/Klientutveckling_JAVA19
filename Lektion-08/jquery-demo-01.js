@@ -1,3 +1,9 @@
+/*********************************
+ * 
+ *   Arbeta med jQuery selektorer
+ * 
+ ********************************/
+
 $(document).ready(function(){
   
   console.log("Hello JQuery");
@@ -17,4 +23,3 @@ $(document).ready(function(){
   });
   
 });
-
