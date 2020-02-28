@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XHR - Demo</title>
+</head>
+<body>
+  <h1>XHR - Demo</h1>
+
+  <div id="demo"></div>
+
+  <script>
+
+    let xhr = new XMLHttpRequest();
+
+    console.log(xhr);
+
+    // Skapa en request (förfrågan)
+    xhr.open('GET' , 'demo.txt' , true);
+    //   reques-metod   URL       true = asynkron
+
+    // Skicka requesten
+    xhr.send();
+
+    // Metoden onreadystatechange 
+    xhr.onreadystatechange = function(){
+      console.log(this.readyState);
+      console.log(this.status);
+      console.log(this.statusText);
+
+      if(this.readyState == 4 && this.status == 200){
+
+        console.log("Response is ready");
+        console.log(this.responseText);
+        
+        document.getElementById('demo').innerHTML = this.responseText;
+        
+      }
+      
+    };
+    
+  </script>
+</body>
+</html>

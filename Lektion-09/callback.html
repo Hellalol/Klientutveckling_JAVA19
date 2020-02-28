@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Callback</title>
+</head>
+<body>
+  <h1>Callback</h1>
+
+  <script>
+
+    /********************************
+     * 
+     *  Synkron callback
+     * 
+     ********************************/ 
+
+    console.log('Synkron callback');
+    console.log('START');
+    
+    let array = ['A' , 'B' , 'C' ];
+
+    console.log(array);
+    array.forEach(function(element){
+      console.log(element);
+    })
+    
+
+    console.log('FINISH');
+    console.log('-----------------');
+
+    /********************************
+     * 
+     *  Asynkron callback
+     * 
+     ********************************/ 
+
+    console.log('Asynkron callback');
+    console.log('START');
+
+    setTimeout(function(){
+      for(let el of array){
+        console.log(el);
+      }
+    }, 1000)
+
+    console.log('FINISH');
+
+  </script>
+</body>
+</html>
