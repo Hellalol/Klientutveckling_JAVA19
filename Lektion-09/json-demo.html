@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON - Demo</title>
+</head>
+<body>
+  <h1>JSON - Demo</h1>
+
+  <button id="loadBtn">Hämta data från JSON</button>
+  <div id="output"></div>
+  <div id="json"></div>
+
+  <script>
+
+    let loadBtn = document.getElementById('loadBtn');
+    loadBtn.addEventListener('click', loadJSON);
+
+    function loadJSON(){
+      
+      console.log("Laddar JSON...");
+
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET' , 'demo.json' , true);
+      xhr.send();
+      xhr.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+          console.log(this);
+          
+          let data = this.responseText;
+          console.log(data);
+
+          let json = JSON.parse(data);
+          console.log(json);
+          console.log(json.name);
+          console.log(json.email);
+      
+          document.getElementById('output').innerHTML =
+            '<h2>'  + json.name + '</h2>' +
+            '<h2>'  + json.email + '</h2>' +
+            '<h2>'  + json.company.name + '</h2>'
+          ;
+
+          document.getElementById('json').innerHTML = JSON.stringify(json);
+
+        } // if
+      } // onreadystatechange   
+    } // loadJSON
+
+
+
+
+  </script>
+</body>
+</html>
