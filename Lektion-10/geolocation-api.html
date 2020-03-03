@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geolocation demo</title>
+  </head>
+  <body>
+    <h1>Geolocation demo</h1>
+
+    <button id="btn">Get Position</button>
+    <h3 id="demo"></h3>
+
+    <div id="map"></div>
+
+    <script>
+      const demo = document.getElementById("demo");
+      const map = document.getElementById("map");
+
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", getLocation);
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          console.log("geolocation finns!");
+          console.log(navigator.geolocation);
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          demo.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+        console.log(position);
+
+        demo.innerHTML =
+          "Latitude: " +
+          position.coords.latitude +
+          "<br>Longitude: " +
+          position.coords.longitude;
+
+          // Tips
+          // https://stackoverflow.com/questions/17290256/get-google-map-link-with-latitude-longitude
+          let iframe = `<iframe 
+          width="500" height="300" 
+          marginheight="0" marginwidth="0" 
+          src="https://maps.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}&hl=es&z=14&amp;output=embed"
+          >
+          </iframe>`;
+
+          map.innerHTML = iframe;
+      }
+    </script>
+  </body>
+</html>

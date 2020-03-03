@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage Demo</title>
+  <style>
+
+    table, th, td{
+      border: 1px solid olivedrab;
+      padding:5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Local Storage Demo</h1>
+
+  <h2>Nycklar och värden</h2>
+  <div id="table"></div>
+
+  <script>
+
+    // Vad är localStorage?
+    // localStorage är ett objekt som finns i alla webbläsare
+    // console.log(window.localStorage);
+    console.log(localStorage);
+    
+    // Lagra data i localStorage
+    localStorage.setItem("name" , "Mahmud");
+    localStorage.setItem("email" , "Mahmud@alhakim.com");
+
+    // Hämta från localStorage
+    let name = localStorage.getItem("name");
+    console.log(name); 
+    // Eller (alternativ syntax)
+    console.log(localStorage.name);
+    console.log(localStorage.email);
+  
+
+    for(let i = 0 ; i < localStorage.length ; i++)
+      console.log(localStorage.key(i));
+    
+    // Övning
+    // Skapa en HTML-tabell som visar 
+    // alla nyckar och värden som finns i localStorage
+
+    let table = `<table>
+        <tr><th>Key</th><th>Value</th></tr>
+      `;
+    for(let i = 0 ; i < localStorage.length ; i++){
+      table += `<tr>
+                <td>${localStorage.key(i)}</td>
+                <td>${localStorage.getItem(localStorage.key(i))}</td>
+                <tr>`;
+    }
+    table += '</table>'
+
+    document.getElementById('table').innerHTML = table;
+
+    // Ta bort data
+    localStorage.removeItem('name');
+    // Test
+    console.log(localStorage.getItem('name'));  // null
+    console.log(localStorage.name);             // undefined
+    
+    // Rensa allt som finns i localStorage
+    localStorage.clear();
+    // Test
+    console.log(localStorage);
+    
+    // Lagra en array i localStorage
+    const array = ['Ett', 'Två', 'Tre'];
+    
+    localStorage.setItem('array' , array);
+
+    console.log(localStorage);
+
+    const test = localStorage.getItem('array');
+    console.log(test);  
+    // OBS! En vanlig sträng
+    // Vi får inte iterera över en sträng
+    // test.forEach(element => {
+    //   console.log(element);
+    // });
+
+    localStorage.setItem('array' , JSON.stringify(array));
+    console.log(localStorage);
+
+    const array2 = JSON.parse(localStorage.getItem('array'));
+    console.log(array2);
+    array2.forEach(element => {
+      console.log(element);
+    });
+    
+
+    // Spara ett objekt i localStorage
+    const person = {
+      name : "Mahmud",
+      email : "mahmud@hotmail.com"
+    }
+    localStorage.setItem('person' , person );
+    console.log(localStorage); // OBS! [object Object]
+
+    localStorage.setItem('person', JSON.stringify(person) );
+    console.log(localStorage);
+
+    const person2 = localStorage.getItem('person');
+    console.log(person2);
+    console.log(person2.name);  // undefined
+    console.log(person2.email); // undefined
+
+    const person3 = JSON.parse(localStorage.getItem('person'));
+    console.log(person3);
+    console.log(person3.name); 
+    console.log(person3.email); 
+  
+  </script>
+</body>
+</html>
