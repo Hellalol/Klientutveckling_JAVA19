@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Namn API - demo</title>
+</head>
+<body>
+  <h1>Namn API - demo</h1>
+  <div id="output"></div>
+
+  <script>
+    let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    let targetUrl = 'https://api.namnapi.se/v2/names.json?limit=5';
+
+    fetch(proxyUrl +targetUrl)
+      .then(response => response.json())
+      .then(json     => showUsers(json))
+      .catch(error   => console.error('Request failed: ', error))
+
+      function showUsers(data){
+        let output = '';
+        data.names.forEach(name => {
+          output += name.firstname + ' ' + name.surname + '<br>';
+        });
+        document.getElementById('output').innerHTML = output;
+      }
+      
+  </script>
+</body>
+</html>
