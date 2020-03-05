@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngularJS - Exempel 2</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+
+    <h1>AngularJS - Exempel 2</h1>
+
+    <div ng-app="myApp" ng-cloak>
+
+      <h1 ng-controller="myCtrl">
+          {{ firstName + " " + lastName }}
+      </h1>
+
+      <div ng-controller="myCtrl">
+        <p>
+          First Name: <br>
+          <input type="text" 
+          class="form-control" 
+          ng-model="firstName" >
+        </p>
+        <p>
+          Last Name: <br>
+          <input type="text" 
+          class="form-control" 
+          ng-model="lastName" >
+        </p>
+        <h1>  {{ fullName() }} </h1>
+      </div>
+
+      <hr>
+
+      <h2>Övning</h2>
+      <div ng-controller="carCtrl">
+    
+        <table class="table">
+          <tr>
+            <th>Modell</th>
+            <th>Regnummer</th>
+            <th>Pris</th>
+          </tr>
+    
+          <tr ng-repeat="car in cars">
+            <td>  
+              {{ car.Model }}
+            </td>
+            <td>
+              {{ car.Regnr }}
+            </td>
+            <td>
+              {{ car.Price }}
+            </td>
+          </tr>
+        </table>
+
+        <hr>
+
+        <h2>Filter i AngularJS</h2>
+        
+        <div ng-controller="listCtrl">
+
+          <input type="text" 
+                class="form-control"
+                ng-model="search">
+          <ul>
+            <li ng-repeat="name in names | filter : search">
+              {{ name }}
+            </li>
+          </ul>
+
+        </div>
+
+        <br><br><br><br><br><br><br><br>
+
+
+
+      </div>
+    </div> <!-- myApp -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="ng-exempel-02.js"></script>
+  </body>
+</html>

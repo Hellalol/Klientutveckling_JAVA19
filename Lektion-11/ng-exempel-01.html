@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngularJS - Exempel 1</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+
+    <h1>AngularJS - Exempel 1</h1>
+
+    <div ng-app ng-cloak>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ange förnamn"
+        ng-model="firstName"
+      />
+      <br />
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ange efternamn"
+        ng-model="lastName"
+      />
+      <br />
+
+      <h1>Hej {{ firstName }} {{ lastName }}</h1>
+      <h1>Hello {{ firstName + ' ' + lastName }}</h1>
+
+      <hr>
+
+      <h2>NG-INIT</h2>
+
+      <div ng-init="moms=0.25">
+        <p>
+          Pris exkl. moms: 100kr
+        </p>
+        <p>
+          Pris inkl. moms : {{ 100 * (1 + moms)}} kr
+        </p>
+      </div>
+
+      <div ng-init="person={firstName:'John',lastName:'Doe'}">
+        <h3>{{ person.firstName }} {{ person.lastName }}</h3>
+      </div>
+
+      <button
+        ng-init="count=0"
+        ng-click="count = count+1"
+        class="btn btn-outline-dark"
+      >
+        Öka
+      </button>
+
+      <button ng-click="count = 0" class="btn btn-outline-dark">
+        Nollställ
+      </button>
+
+      <button
+        ng-init="count=0"
+        ng-click="count = count-1"
+        class="btn btn-outline-dark"
+      >
+        Miska
+      </button>
+      <h2>{{ count}}</h2>
+
+      <hr>
+
+      <h2>Data Binding</h2>
+      <div ng-init="qty=1;cost=10">
+        Antal: <br>
+        <input 
+          type="number" 
+          min="0" 
+          ng-model="qty"
+          class="form-control"
+        > 
+        <br>
+        Pris: <br>
+        <input 
+          type="number" 
+          min="0" 
+          ng-model="cost"
+          class="form-control"  
+        > <br>
+        <h3>
+          Totalt: {{ qty * cost }}
+        </h3>
+      </div>
+
+      <hr>
+
+      <h2>Övning</h2>
+ 
+      <table class="table">
+        <tr>
+          <th>Produkt</th>
+          <th>Pris</th>
+          <th>Antal</th>
+          <th>Summa</th>
+        </tr>
+        <tr>
+          <td>Produkt 1</td>
+          <td ng-init="cost1=10">10 kr</td>
+          <td>
+            <input type="number" min="0" 
+                  class="form-control" 
+                  ng-init="qty1=0" ng-model="qty1">
+          </td>
+          <td>
+            {{ cost1 * qty1 }}
+          </td>
+        </tr>
+        <tr>
+          <td>Produkt 2</td>
+          <td ng-init="cost2=15">15 kr</td>
+          <td>
+            <input type="number" min="0" 
+            class="form-control"
+                  ng-init="qty2=0" ng-model="qty2">
+          </td>
+          <td>
+            {{ cost2 * qty2 }}
+          </td>
+        </tr>
+      </table>
+    
+      <h3 class="text-info">
+        Totalsumma: {{ (cost1 * qty1) + (cost2 * qty2) }}
+      </h3>
+      <hr>
+
+      <h2>ng-repeat</h2>
+      
+      <div ng-init="months=['Jan','Feb','Mar']">
+        <div ng-repeat="month in months">
+        {{ month }}
+        </div>
+      </div>
+
+      <hr>
+
+      <h3>Övning</h3>
+
+      <ul ng-init="days=[
+            'Måndag' ,
+            'Tisdag' ,
+            'Onsdag' ,
+            'Torsdag',
+            'Fredag' ,
+            'Lördag' ,
+            'Söndag'
+          ]"
+      >
+        <li ng-repeat="day in days">
+          {{ day }}
+        </li>
+      </ul>
+
+
+      <div ng-include="'footer.html'"></div>
+
+
+    </div>
+    <!-- ng-app -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  </body>
+</html>
