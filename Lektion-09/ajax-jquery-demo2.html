@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax via jQuery</title>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      // OBS! Överkurs
+      // Fråga: Hur hämtar vi data från JSON och sedan lagra i en array?
+      // Svar:  Detta måste du göra synkront!
+
+      // Lösning 1
+      // Ange synkron-anrop via metoden ajaxSetup
+      function getData(){
+        let array = [];
+        $.ajaxSetup({async: false});
+        $.getJSON("demo2.json", function(response){
+          $.each(response, (k,v) => array.push(v));
+        }); // getJSON
+
+        return array;
+      }
+      let data = getData();
+      console.log(data);
+
+      // Lösning 2
+      // Använd metoden ajax istället för getJSON
+      function getData2(){
+        let array = [];
+
+        $.ajax({
+          url: "demo2.json",
+          dataType: 'json',
+          async: false,
+          success: function(response) {
+            $.each(response, (k,v) => array.push(v));
+          }
+        }); // ajax
+        return array;
+      }
+      let data2 = getData2();
+      console.log(data2);
+
+
+}); // ready
+
+  </script>
+</body>
+</html>
