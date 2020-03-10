@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch API - demo 2</title>
+</head>
+<body>
+  <h1>Fetch API - demo 2</h1>
+
+  <script>
+
+  function getData(url){
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => data) // Data från JSON returneras som promise
+      .catch(error   => console.error(error))
+  }
+
+  let users =  getData('https://jsonplaceholder.typicode.com/users'); 
+  // Vi får en promise
+  // För att komma åt data måste vi använda then()
+  users.then(data => {     
+    data.forEach(user => {
+      console.log(user.name);
+    });
+  });
+
+  </script>
+</body>
+</html>
